@@ -1,28 +1,57 @@
 .panel {
-    background-color: #EEEEEE;
+    background-color: #F0F0F0;
     width: 300px;
     height: 300px;
     border: solid 1px;
     float: left;
+    margin: 5px;
         
 }
 
-#draggable {
+.draggable {
     background-color: #FFF;
     margin: 2px;
     padding: 2px 10px;
     border: 1px solid grey;
+    min-height: 24px;
 }
 
-#item_list {
-    background-color: #DDD;
+.placeholder {
+    height: 24px;
+}
+ 
+.draggable {
+    cursor: move;
+}
+
+drop_zone {
+    height: 24px;
+    background-color: #E5E5E5;
+    border: 2px dotted #E4E4E7;
+    margin: 5px;
+}
+
+.ui_ul {
+    list-style: none;
+    padding: 0;
     margin: 10px;
-    min-height: 20px;
-    
+}
+
+.events_blind {
+     pointer-events: none; 
+}
+
+.item {
+    margin: 2px;
+    background-color: #ABB0B6;
+}
+
+.editable_item {
+/*     border: 1px dashed red;*/
 }
 
 .droppable {
-    border: 2px dashed red;
+    background-color: #CCD5DF;
 }
 
 .hide {
