@@ -21,6 +21,8 @@ const onDragStart = function (e) {
     e.target.style.backgroundColor = "#FFFFFF";
 
     e.dataTransfer.setData("text/html", e.target.innerHTML);
+    
+    placeHoleder = createPlaceholder();
     itemList.style.border = "2px dashed gray";
     if(itemList.childElementCount > 0) {
         itemList.childNodes.forEach( item => {
@@ -28,9 +30,10 @@ const onDragStart = function (e) {
                 item.classList.add("event_blind");
             }
         });
+        itemList.insertBefore(placeHoleder, itemList.firstChild);
+    } else {
+        itemList.append(placeHoleder);
     }
-    placeHoleder = createPlaceholder();
-    itemList.append(placeHoleder);
     return false;
 };
 
