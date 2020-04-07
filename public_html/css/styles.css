@@ -16,9 +16,6 @@
     margin: 2px;
     border: 1px solid grey;
     min-height: 24px;
-}
-
-.draggable {
     cursor: move;
 }
 
@@ -33,10 +30,6 @@ drop_zone {
     list-style: none;
     padding: 0;
     margin: 10px;
-}
-
-.events_blind {
-     pointer-events: none; 
 }
 
 .item {
