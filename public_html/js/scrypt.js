@@ -29,6 +29,7 @@ const app = {
             this.itemList.childNodes.forEach( item => {
                 if(item && item.classList) {
                     item.firstChild.setAttribute("contenteditable", false);
+                    item.firstChild.style.pointerEvents = "none";
                 }
             });
             this.itemList.insertBefore(this.placeHoleder, this.itemList.firstChild);
@@ -50,6 +51,7 @@ const app = {
         li.addEventListener("drop", (e) => this.onDrop(e));
         li.addEventListener("dragover", (e) => this.onDragOver(e));
         li.addEventListener("dragenter", (e) => this.onDragEnter(e));
+        li.addEventListener("dragleave", (e) => this.onDragLeave(e));
         this.placeHoleder.replaceWith(li);
 
         if(this.placeHoleder) {
@@ -70,6 +72,7 @@ const app = {
         this.itemList.childNodes.forEach( function(item) {
             if(item && item.firstChild){
                 item.firstChild.setAttribute("contenteditable", true);
+                item.firstChild.style.pointerEvents = null;
             }
         });
         return false;
@@ -78,18 +81,11 @@ const app = {
     onDragOver: function(e) {
         e.preventDefault();
         e.dataTransfer.dropEffect = "move";
-        const YY= 2 * e.target.getBoundingClientRect().top;
-        const y = e.clientY - YY;  //y position within the element.
         
         if(e.target === this.placeHoleder) {
             return false;
         }
-        if (this.placeHoleder && y > 0) {
-            //e.target.insertAfter(this.placeHoleder. this.target);
-        } else {
-            //e.target.parentNode && e.target.parentNode.insertBefore(this.placeHoleder, e.target);
-        }
-
+        e.target.parentNode.insertBefore(this.placeHoleder, e.target);
         return false;
     },
     

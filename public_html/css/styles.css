@@ -17,6 +17,7 @@
     border: 1px solid grey;
     min-height: 24px;
     cursor: move;
+    display: flex;
 }
 
 drop_zone {
